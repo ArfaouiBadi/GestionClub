@@ -1,0 +1,41 @@
+const mongoose = require("mongoose");
+
+const materialSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+
+  image: {
+    type: String,
+    required: true,
+    unique: false,
+  },
+  otherView:{
+    type:Array,
+    required:false,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  series:{
+    type:String,
+    required:false,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+  },
+  quantity: {
+    type: Number,
+    default: 1,
+  },
+},{ timestamps: true });
+
+const material = mongoose.model("materials", materialSchema);
+
+module.exports = material;
